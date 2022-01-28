@@ -1,0 +1,9 @@
+Library/
+Packages/
+Logs/
+Temp/
+.vs/
+Assembly-CSharp.csproj
+GGJ2022.sln
+.vscode/
+obj/
