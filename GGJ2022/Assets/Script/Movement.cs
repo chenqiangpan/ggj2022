@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Movement : MonoBehaviour
 {
@@ -13,10 +14,8 @@ public class Movement : MonoBehaviour
     [SerializeField]
     private bool isReverse = false;
 
-    void Start()
-    {
+    
 
-    }
 
     // Update is called once per frame
     void Update()
@@ -85,9 +84,9 @@ public class Movement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Boundary")
+        if (other.gameObject.name == "boarder" && gameObject.tag == "black")
         {
-            Destroy(gameObject);
+            this.transform.position = new Vector3(0, 0, 0);
         }
         if (other.gameObject.name == "Player")
         {
@@ -96,7 +95,7 @@ public class Movement : MonoBehaviour
         if (other.gameObject.tag == gameObject.tag)
         {
             Debug.Log("into the same color zone");
-           isReverse = true;
+            isReverse = !isReverse;
         }
 
     }
